@@ -26,16 +26,17 @@ jobs:
 
         function makeLookML() {
             let lookML = [];
-            for (const [header, context, action] of UTE_MAPPING) {
-                let lowContext = context.toLowerCase();
-                let lowAction = action.toLowerCase();
-                const fieldName = \`${lowContext}_${lowAction}\`.replace(/[.-]/g, '_');
-                var dimension = 'dimension: '+fieldName+' {\n\thidden: yes\n\tgroup_label: "'+header+'"\n\ttype: number\n\tsql: ${TABLE}.'+fieldName+';;\n}\n';
-                var measure = 'measure: total_'+fieldName+' {\n\tlabel: "'+context+':'+action+'"\n\tgroup_label: "'+header+'"\n\ttype: sum\n\tvalue_format: "@{number_format}"\n\tsql: ${'+fieldName+'};;\n}\n';
-                lookML.push(dimension);
-                lookML.push(measure);
-            }
-            return lookML.join('\n');
+            lookml = UTE_MAPPING.map(([view, dimension, measure]) => {
+                return `view: ${view} {
+                    dimension: ${dimension} {
+                        type: string
+                    }
+                    measure: ${measure} {
+                        type: count
+                    }
+                }`
+            }).join('\n\n');
+            return lookML;
         }
 
         function appendDateToFile(filePath) {
