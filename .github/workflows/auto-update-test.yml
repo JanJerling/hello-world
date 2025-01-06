@@ -26,7 +26,7 @@ jobs:
 
         function makeLookML() {
             let lookML = [];
-            lookml = UTE_MAPPING.map(([view, dimension, measure]) => {
+            lookML = UTE_MAPPING.map(([view, dimension, measure]) => {
                 return `view: ${view} {
                     dimension: ${dimension} {
                         type: string
@@ -36,12 +36,12 @@ jobs:
                     }
                 }`
             }).join('\n\n');
-            return lookML;
+            return lookML.toString();
         }
 
         function appendDateToFile(filePath) {
             const currentDate = new Date().toISOString();
-            fs.appendFileSync(filePath, makeLookML().toString() + '\n\n' + currentDate + 'bullshit');
+            fs.appendFileSync(filePath, makeLookML() + '\n\n' + currentDate);
         }
 
         appendDateToFile(path);"
