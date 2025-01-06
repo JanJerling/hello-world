@@ -1,4 +1,4 @@
-name: Scheduled Update
+name: Auto Update Test
 
 on:
   schedule:
