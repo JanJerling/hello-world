@@ -1,12 +1,11 @@
-name: Auto Update Test
+name: Run Every Minute
 
 on:
   schedule:
-    # Runs every minute
     - cron: "*/1 * * * *"
 
 jobs:
-  auto-update-test:
+  run-every-minute:
     runs-on: ubuntu-latest
 
     steps:
