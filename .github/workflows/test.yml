@@ -1,0 +1,13 @@
+name: Run Every Minute
+
+on:
+  schedule:
+    - cron: "*/1 * * * *"
+
+jobs:
+  run-every-minute:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Print Timestamp
+      run: echo "This workflow ran at $(date)"
