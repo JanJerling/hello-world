@@ -3,7 +3,7 @@ name: Auto Update Test
 on:
   schedule:
     # Runs every minute
-    - cron: "*/1 * * * *"
+    - cron: "*/5 * * * *"
 
 jobs:
   auto-update-test:
