@@ -3,7 +3,7 @@ name: Auto Update Test
 on:
   schedule:
     # Runs 8:7 UTC every day -  10:7 SAST
-    - cron: "7 8 * * *"
+    - cron: "9 8 * * *"
 
 jobs:
   auto-update-test:
