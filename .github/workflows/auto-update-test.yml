@@ -10,22 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Print Timestamp
-      run: echo "This workflow ran at $(date)"
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
+    - name: Add date to my-file
+      run: |
+        echo "Updated at $(date)" >> my-file.txt
 
-    # steps:
-    # - name: Checkout repository
-    #   uses: actions/checkout@v3
-
-    # - name: Make changes to a file
-    #   run: |
-    #     echo "Updated at $(date)" >> my-file.txt
-
-    # - name: Commit changes
-    #   run: |
-    #     git config --global user.name "github-actions[bot]"
-    #     git config --global user.email "github-actions[bot]@users.noreply.github.com"
-    #     git add .
-    #     git commit -m "Automated update: $(date)"
-    #     git push
+    - name: Commit changes and push
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add .
+        git commit -m "Automated update: $(date)"
+        git push
