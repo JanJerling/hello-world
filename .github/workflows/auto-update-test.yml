@@ -47,7 +47,7 @@ jobs:
         // Append string to existing file
         function appendDateToFile(filePath) {
           const currentDate = new Date().toISOString();
-          fs.appendFileSync(filePath, makeLookML());
+          fs.appendFileSync(filePath, 'test');
         }
 
         // Execute the function
