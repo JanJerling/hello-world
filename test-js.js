@@ -18,8 +18,8 @@ function makeLookML() {
       let lowAction = action.toLowerCase();
       const fieldName = `${lowContext}_${lowAction}`.replaceAll(/[.-]/g, "_");
       
-      var dimension = 'dimension: '+fieldName+' {\n\thidden: yes\n\tgroup_label: "'+header+'"\n\ttype: number\n\tsql: ${TABLE}.'+fieldName+';;\n}\n'
-      var measure = 'measure: total_'+fieldName+' {\n\tlabel: "'+context+':'+action+'"\n\tgroup_label: "'+header+'"\n\ttype: sum\n\tvalue_format: "@{number_format}"\n\tsql: ${'+fieldName+'};;\n}\n'
+      var dimension = 'dimension: '+fieldName+' {\n\thidden: yes\n\tgroup_label: "'+header+'"\n\ttype: number\n\tsql: ${TABLE}.'+fieldName+';;\n}\n';
+      var measure = 'measure: total_'+fieldName+' {\n\tlabel: "'+context+':'+action+'"\n\tgroup_label: "'+header+'"\n\ttype: sum\n\tvalue_format: "@{number_format}"\n\tsql: ${'+fieldName+'};;\n}\n';
       lookML.push(dimension);
       lookML.push(measure);
     }
@@ -30,7 +30,7 @@ function makeLookML() {
 // Append string to existing file
 function appendDateToFile(filePath) {
   const currentDate = new Date().toISOString();
-  fs.appendFileSync(filePath, makeLookML());
+  console.log(makeLookML());
 }
 
 // Execute the function
