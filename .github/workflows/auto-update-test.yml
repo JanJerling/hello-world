@@ -1,9 +1,9 @@
 name: Auto Update Test
 
-on:
-  schedule:
-    # Runs 8:7 UTC every day -  10:7 SAST
-    - cron: "*/6 * * * *"
+on: workflow_dispatch
+  # schedule:
+  #   # Runs 8:7 UTC every day -  10:7 SAST
+  #   - cron: "*/6 * * * *"
 
 jobs:
   auto-update-test:
