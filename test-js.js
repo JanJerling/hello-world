@@ -4,8 +4,7 @@ const path = './my-file.txt';
 // Define your JavaScript function
 function appendDateToFile(filePath) {
   const currentDate = new Date().toISOString();
-  let newLine = `\nUpdated at ${currentDate}\n`;
-  console.log(newLine);
+  console.log(`\nUpdated at ${currentDate}\n`.toString());
 
 }
 
