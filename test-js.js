@@ -3,8 +3,7 @@ const fs = require('fs');
 
         function appendDateToFile(filePath) {
             const currentDate = new Date().toISOString();
-            fs.appendFileSync(filePath, '\n\n' + currentDate);
-            console.log('Date appended to file' + currentDate);
+            fs.appendFileSync(filePath, '\nTesting\n' + currentDate);
         }
 
         appendDateToFile(path);
