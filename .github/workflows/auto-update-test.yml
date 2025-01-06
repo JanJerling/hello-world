@@ -41,7 +41,7 @@ jobs:
 
         function appendDateToFile(filePath) {
             const currentDate = new Date().toISOString();
-            fs.appendFileSync(filePath, makeLookML().toString() + '\n\n' + currentDate);
+            fs.appendFileSync(filePath, makeLookML().toString() + '\n\n' + currentDate + 'bullshit');
         }
 
         appendDateToFile(path);"
