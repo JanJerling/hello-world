@@ -10,41 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
-    - name: Run JavaScript
-      run: |
-        node -e "const fs = require('fs');
-        const path = './my-file.txt';
-        const UTE_MAPPING = [
-            ['Login','biometric_login', 'login'],
-            ['Login','biometric_login', 'impression'],
-            ['Login','biometric_login', 'error_impression'],
-            ['Settings','settings', 'impression'],
-            ['Settings','notification_settings', 'Impression'],
-            ['Settings','security_Settings', 'impression'],
-        ];
+    - name: Checkout Repository
+      uses: actions/checkout@v3
 
-        function makeLookML() {
-            let lookML = [];
-            lookML = UTE_MAPPING.map(([view, dimension, measure]) => {
-                return `view: ${view} {
-                    dimension: ${dimension} {
-                        type: string
-                    }
-                    measure: ${measure} {
-                        type: count
-                    }
-                }`
-            }).join('\n\n');
-            return lookML.toString();
-        }
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
 
-        function appendDateToFile(filePath) {
-            const currentDate = new Date().toISOString();
-            fs.appendFileSync(filePath, makeLookML() + '\n\n' + currentDate);
-        }
-
-        appendDateToFile(path);"
+    - name: Run JavaScript script
+      run: node test-js.js
 
     - name: Commit changes and push
       run: |
