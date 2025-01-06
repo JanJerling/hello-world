@@ -22,7 +22,7 @@ jobs:
         // Define your JavaScript function
         function appendDateToFile(filePath) {
           const currentDate = new Date().toISOString();
-          const newLine = `\nUpdated at ${currentDate}\n`;
+          let newLine = `\nUpdated at ${currentDate}\n`;
           fs.appendFileSync(filePath, newLine.toString());
         }
 
