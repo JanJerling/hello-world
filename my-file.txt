@@ -1,1 +1,91 @@
 Lorem ipsum dolor sit amet, consectetur 
+dimension: biometric_login_login {
+	hidden: yes
+	group_label: "Login"
+	type: number
+	sql: ${TABLE}.biometric_login_login;;
+}
+
+measure: total_biometric_login_login {
+	label: "biometric_login:login"
+	group_label: "Login"
+	type: sum
+	value_format: "@{number_format}"
+	sql: ${biometric_login_login};;
+}
+
+dimension: biometric_login_impression {
+	hidden: yes
+	group_label: "Login"
+	type: number
+	sql: ${TABLE}.biometric_login_impression;;
+}
+
+measure: total_biometric_login_impression {
+	label: "biometric_login:impression"
+	group_label: "Login"
+	type: sum
+	value_format: "@{number_format}"
+	sql: ${biometric_login_impression};;
+}
+
+dimension: biometric_login_error_impression {
+	hidden: yes
+	group_label: "Login"
+	type: number
+	sql: ${TABLE}.biometric_login_error_impression;;
+}
+
+measure: total_biometric_login_error_impression {
+	label: "biometric_login:error_impression"
+	group_label: "Login"
+	type: sum
+	value_format: "@{number_format}"
+	sql: ${biometric_login_error_impression};;
+}
+
+dimension: settings_impression {
+	hidden: yes
+	group_label: "Settings"
+	type: number
+	sql: ${TABLE}.settings_impression;;
+}
+
+measure: total_settings_impression {
+	label: "settings:impression"
+	group_label: "Settings"
+	type: sum
+	value_format: "@{number_format}"
+	sql: ${settings_impression};;
+}
+
+dimension: notification_settings_impression {
+	hidden: yes
+	group_label: "Settings"
+	type: number
+	sql: ${TABLE}.notification_settings_impression;;
+}
+
+measure: total_notification_settings_impression {
+	label: "notification_settings:Impression"
+	group_label: "Settings"
+	type: sum
+	value_format: "@{number_format}"
+	sql: ${notification_settings_impression};;
+}
+
+dimension: security_settings_impression {
+	hidden: yes
+	group_label: "Settings"
+	type: number
+	sql: ${TABLE}.security_settings_impression;;
+}
+
+measure: total_security_settings_impression {
+	label: "security_Settings:impression"
+	group_label: "Settings"
+	type: sum
+	value_format: "@{number_format}"
+	sql: ${security_settings_impression};;
+}
+
